@@ -3,68 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Crucigrama</title>
+    <title>Crucigrama Challenge</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎯 Crucigrama Challenge</h1>
-            <div class="game-info">
-                <div class="info-item">
-                    <span class="label">Nivel:</span>
-                    <span id="current-level" class="value">1</span>
+    <div class="app">
+        <!-- TOP BAR -->
+        <header class="top-bar">
+            <div class="top-left">
+                <button id="back-btn" class="icon-btn back-btn" title="Nivel anterior">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <div class="score-box">
+                    <span class="score-label">PTS</span>
+                    <span id="score" class="score-value">0</span>
                 </div>
-                <div class="info-item">
-                    <span class="label">Intentos:</span>
-                    <span id="attempts" class="value">0</span>
+                <div class="attempts-box">
+                    <span class="attempts-label">Intentos</span>
+                    <span id="attempts" class="attempts-value">0</span>
                 </div>
-                <div class="info-item">
-                    <span class="label">Puntuación:</span>
-                    <span id="score" class="value">0</span>
-                </div>
-                <div class="info-item">
-                    <span class="label">Pistas:</span>
-                    <span id="hints-left" class="value">3</span>
-                </div>
+            </div>
+            <div class="top-center">
+                <span class="level-badge" id="level-badge">NIVEL 1</span>
+                <span class="theme-name" id="theme-name">Animales y Hogar</span>
+            </div>
+            <div class="top-right">
+                <button id="reset-btn" class="icon-btn reset-btn" title="Reiniciar nivel">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                </button>
+                <button id="hint-btn" class="icon-btn hint-btn" title="Obtener pista">
+                    <span class="hint-icon">?</span>
+                    <span class="hint-count" id="hints-left">3</span>
+                </button>
             </div>
         </header>
 
-        <main>
-            <div class="game-section">
-                <div class="crossword-container">
-                    <div id="crossword-grid"></div>
+        <!-- MAIN AREA -->
+        <main class="game-area">
+            <div class="game-center">
+                <div class="crossword-wrapper">
+                    <div id="crossword-grid" class="crossword-grid"></div>
                 </div>
-
-                <div class="controls-section">
-                    <div class="clues-container">
-                        <div class="clues-column">
-                            <h3>Horizontales</h3>
+                <div class="clue-panel">
+                    <div class="phrase-box">
+                        <span class="phrase-label">Frase oculta</span>
+                        <p id="level-phrase" class="phrase-text">"Donde hay amor, hay vida"</p>
+                    </div>
+                    <div class="clues-list">
+                        <div class="clues-section">
+                            <h4>Horizontales</h4>
                             <ul id="horizontal-clues"></ul>
                         </div>
-                        <div class="clues-column">
-                            <h3>Verticales</h3>
+                        <div class="clues-section">
+                            <h4>Verticales</h4>
                             <ul id="vertical-clues"></ul>
                         </div>
                     </div>
-
-                    <div class="buttons-container">
-                        <button id="hint-btn" class="btn btn-hint">💡 Usar Pista</button>
-                        <button id="check-btn" class="btn btn-check">✓ Verificar</button>
-                        <button id="reset-btn" class="btn btn-reset">🔄 Reiniciar Nivel</button>
-                    </div>
-
-                    <div id="message" class="message"></div>
+                    <button id="check-btn" class="check-btn">Verificar</button>
                 </div>
             </div>
+            <div id="message" class="message"></div>
         </main>
 
-        <div id="modal" class="modal">
-            <div class="modal-content">
+        <!-- KEYBOARD -->
+        <footer class="keyboard-area">
+            <div id="keyboard" class="keyboard"></div>
+        </footer>
+
+        <!-- MODAL -->
+        <div id="modal" class="modal-overlay">
+            <div class="modal-box">
                 <h2 id="modal-title"></h2>
                 <p id="modal-message"></p>
-                <div id="modal-stats"></div>
-                <button id="modal-btn" class="btn btn-primary"></button>
+                <div id="modal-stats" class="modal-stats"></div>
+                <button id="modal-btn" class="modal-btn"></button>
             </div>
         </div>
     </div>
