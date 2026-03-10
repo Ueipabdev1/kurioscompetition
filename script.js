@@ -1,5 +1,44 @@
 const LEVELS = [
     {
+        level: 0,
+        difficulty: "Tutorial",
+        theme: "Misión de Entrenamiento",
+        phrase: "Hola agente, bienvenido a tu nueva misión. En esta misión debes descubrir las palabras de cada fila, esta atento a las pistas",
+        size: { rows: 3, cols: 11 },
+        words: [
+            { word: "COMPUTADORA", clue: "Máquina que procesa información", hint: "11 letras, PC", row: 0, col: 0, direction: "horizontal", number: 1 },
+            { word: "TECLADO", clue: "Dispositivo con letras y números", hint: "7 letras, sirve para escribir", row: 1, col: 0, direction: "horizontal", number: 2 },
+            { word: "RATON", clue: "Dispositivo que mueves con la mano", hint: "5 letras, tiene botón", row: 2, col: 0, direction: "horizontal", number: 3 }
+        ],
+        prefilledLetters: [
+            // COMPUTADORA - dejar solo 1 letra sin completar (la O en posición 6)
+            { row: 0, col: 0, letter: "C" },
+            { row: 0, col: 1, letter: "O" },
+            { row: 0, col: 2, letter: "M" },
+            { row: 0, col: 3, letter: "P" },
+            { row: 0, col: 4, letter: "U" },
+            { row: 0, col: 5, letter: "T" },
+            { row: 0, col: 7, letter: "D" },
+            { row: 0, col: 8, letter: "O" },
+            { row: 0, col: 9, letter: "R" },
+            { row: 0, col: 10, letter: "A" },
+            // TECLADO - dejar solo 1 letra sin completar (la A en posición 5)
+            { row: 1, col: 0, letter: "T" },
+            { row: 1, col: 1, letter: "E" },
+            { row: 1, col: 2, letter: "C" },
+            { row: 1, col: 3, letter: "L" },
+            { row: 1, col: 4, letter: "A" },
+            { row: 1, col: 6, letter: "O" },
+            // RATON - dejar solo 1 letra sin completar (la T en posición 2)
+            { row: 2, col: 0, letter: "R" },
+            { row: 2, col: 1, letter: "A" },
+            { row: 2, col: 3, letter: "O" },
+            { row: 2, col: 4, letter: "N" }
+        ],
+        hints: 5,
+        isTutorial: true
+    },
+    {
         level: 1,
         difficulty: "Fácil",
         theme: "Fundamentos de Informática",
@@ -11,6 +50,32 @@ const LEVELS = [
             { word: "DATOS", clue: "Información digital", hint: "5 letras, información", row: 2, col: 0, direction: "horizontal", number: 3 },
             { word: "MOUSE", clue: "Dispositivo apuntador", hint: "5 letras, ratón", row: 3, col: 0, direction: "horizontal", number: 4 },
             { word: "CHIP", clue: "Circuito integrado", hint: "4 letras, microprocesador", row: 4, col: 0, direction: "horizontal", number: 5 }
+        ],
+        prefilledLetters: [
+            // INTERNET - dejar 2 letras sin completar
+            { row: 0, col: 0, letter: "I" },
+            { row: 0, col: 1, letter: "N" },
+            { row: 0, col: 2, letter: "T" },
+            { row: 0, col: 4, letter: "R" },
+            { row: 0, col: 5, letter: "N" },
+            { row: 0, col: 7, letter: "T" },
+            // TECLADO - dejar 2 letras sin completar
+            { row: 1, col: 0, letter: "T" },
+            { row: 1, col: 1, letter: "E" },
+            { row: 1, col: 3, letter: "L" },
+            { row: 1, col: 4, letter: "A" },
+            { row: 1, col: 6, letter: "O" },
+            // DATOS - dejar 2 letras sin completar
+            { row: 2, col: 0, letter: "D" },
+            { row: 2, col: 2, letter: "T" },
+            { row: 2, col: 4, letter: "S" },
+            // MOUSE - dejar 2 letras sin completar
+            { row: 3, col: 0, letter: "M" },
+            { row: 3, col: 2, letter: "U" },
+            { row: 3, col: 4, letter: "E" },
+            // CHIP - dejar 2 letras sin completar
+            { row: 4, col: 0, letter: "C" },
+            { row: 4, col: 3, letter: "P" }
         ],
         hints: 3
     },
@@ -28,6 +93,35 @@ const LEVELS = [
             { word: "WIFI", clue: "Conexión inalámbrica", hint: "4 letras, red sin cables", row: 4, col: 0, direction: "horizontal", number: 5 },
             { word: "FIREWALL", clue: "Barrera de seguridad", hint: "8 letras, cortafuegos", row: 5, col: 0, direction: "horizontal", number: 6 }
         ],
+        prefilledLetters: [
+            // SERVIDOR - dejar 3 letras sin completar
+            { row: 0, col: 0, letter: "S" },
+            { row: 0, col: 2, letter: "R" },
+            { row: 0, col: 3, letter: "V" },
+            { row: 0, col: 5, letter: "D" },
+            { row: 0, col: 7, letter: "R" },
+            // ETHERNET - dejar 3 letras sin completar
+            { row: 1, col: 0, letter: "E" },
+            { row: 1, col: 2, letter: "H" },
+            { row: 1, col: 4, letter: "R" },
+            { row: 1, col: 5, letter: "N" },
+            { row: 1, col: 7, letter: "T" },
+            // ROUTER - dejar 3 letras sin completar
+            { row: 2, col: 0, letter: "R" },
+            { row: 2, col: 3, letter: "T" },
+            { row: 2, col: 5, letter: "R" },
+            // MODEM - dejar 3 letras sin completar
+            { row: 3, col: 0, letter: "M" },
+            { row: 3, col: 3, letter: "E" },
+            // WIFI - dejar 3 letras sin completar
+            { row: 4, col: 0, letter: "W" },
+            // FIREWALL - dejar 3 letras sin completar
+            { row: 5, col: 0, letter: "F" },
+            { row: 5, col: 2, letter: "R" },
+            { row: 5, col: 4, letter: "W" },
+            { row: 5, col: 6, letter: "L" },
+            { row: 5, col: 7, letter: "L" }
+        ],
         hints: 3
     },
     {
@@ -44,6 +138,35 @@ const LEVELS = [
             { word: "PYTHON", clue: "Lenguaje de programación", hint: "6 letras, serpiente", row: 4, col: 0, direction: "horizontal", number: 5 },
             { word: "ALGORITMO", clue: "Secuencia de pasos", hint: "9 letras, procedimiento", row: 5, col: 0, direction: "horizontal", number: 6 },
             { word: "DEBUG", clue: "Eliminar errores", hint: "5 letras, depurar", row: 6, col: 0, direction: "horizontal", number: 7 }
+        ],
+        prefilledLetters: [
+            // PROGRAMA - dejar 4 letras sin completar
+            { row: 0, col: 0, letter: "P" },
+            { row: 0, col: 3, letter: "G" },
+            { row: 0, col: 5, letter: "A" },
+            { row: 0, col: 7, letter: "A" },
+            // VARIABLE - dejar 4 letras sin completar
+            { row: 1, col: 0, letter: "V" },
+            { row: 1, col: 3, letter: "I" },
+            { row: 1, col: 5, letter: "B" },
+            { row: 1, col: 7, letter: "E" },
+            // FUNCION - dejar 4 letras sin completar
+            { row: 2, col: 0, letter: "F" },
+            { row: 2, col: 3, letter: "C" },
+            { row: 2, col: 5, letter: "O" },
+            // CLASE - dejar 4 letras sin completar
+            { row: 3, col: 0, letter: "C" },
+            // PYTHON - dejar 4 letras sin completar
+            { row: 4, col: 0, letter: "P" },
+            { row: 4, col: 4, letter: "O" },
+            // ALGORITMO - dejar 4 letras sin completar
+            { row: 5, col: 0, letter: "A" },
+            { row: 5, col: 2, letter: "G" },
+            { row: 5, col: 4, letter: "R" },
+            { row: 5, col: 6, letter: "T" },
+            { row: 5, col: 8, letter: "O" },
+            // DEBUG - dejar 4 letras sin completar
+            { row: 6, col: 0, letter: "D" }
         ],
         hints: 4
     },
@@ -63,6 +186,42 @@ const LEVELS = [
             { word: "VENTILADOR", clue: "Sistema de enfriamiento", hint: "10 letras, cooler", row: 6, col: 0, direction: "horizontal", number: 7 },
             { word: "CACHE", clue: "Memoria rápida", hint: "5 letras, buffer", row: 7, col: 0, direction: "horizontal", number: 8 }
         ],
+        prefilledLetters: [
+            // PROCESADOR - dejar 5 letras sin completar
+            { row: 0, col: 0, letter: "P" },
+            { row: 0, col: 3, letter: "C" },
+            { row: 0, col: 5, letter: "S" },
+            { row: 0, col: 7, letter: "D" },
+            { row: 0, col: 9, letter: "R" },
+            // MOTHERBOARD - dejar 5 letras sin completar
+            { row: 1, col: 0, letter: "M" },
+            { row: 1, col: 3, letter: "H" },
+            { row: 1, col: 5, letter: "R" },
+            { row: 1, col: 6, letter: "B" },
+            { row: 1, col: 9, letter: "R" },
+            { row: 1, col: 10, letter: "D" },
+            // MEMORIA - dejar 5 letras sin completar
+            { row: 2, col: 0, letter: "M" },
+            { row: 2, col: 3, letter: "O" },
+            // DISCO - dejar 5 letras sin completar (solo tiene 5, dejar 3)
+            { row: 3, col: 0, letter: "D" },
+            { row: 3, col: 3, letter: "C" },
+            // MONITOR - dejar 5 letras sin completar
+            { row: 4, col: 0, letter: "M" },
+            { row: 4, col: 3, letter: "I" },
+            // GRAFICA - dejar 5 letras sin completar
+            { row: 5, col: 0, letter: "G" },
+            { row: 5, col: 3, letter: "F" },
+            // VENTILADOR - dejar 5 letras sin completar
+            { row: 6, col: 0, letter: "V" },
+            { row: 6, col: 3, letter: "T" },
+            { row: 6, col: 5, letter: "L" },
+            { row: 6, col: 7, letter: "D" },
+            { row: 6, col: 9, letter: "R" },
+            // CACHE - dejar 5 letras sin completar (solo tiene 5, dejar 3)
+            { row: 7, col: 0, letter: "C" },
+            { row: 7, col: 3, letter: "H" }
+        ],
         hints: 4
     },
     {
@@ -73,7 +232,7 @@ const LEVELS = [
         size: { rows: 9, cols: 13 },
         words: [
             { word: "CRIPTOGRAFIA", clue: "Ciencia de cifrar información", hint: "12 letras, encriptación", row: 0, col: 0, direction: "horizontal", number: 1 },
-            { word: "CONTRASENA", clue: "Clave de acceso", hint: "10 letras, password", row: 1, col: 0, direction: "horizontal", number: 2 },
+            { word: "CONTRASEÑA", clue: "Clave de acceso", hint: "10 letras, password", row: 1, col: 0, direction: "horizontal", number: 2 },
             { word: "ANTIVIRUS", clue: "Software de protección", hint: "9 letras, defensa", row: 2, col: 0, direction: "horizontal", number: 3 },
             { word: "ENCRIPTACION", clue: "Proceso de cifrado", hint: "12 letras, codificar", row: 3, col: 0, direction: "horizontal", number: 4 },
             { word: "PHISHING", clue: "Fraude por internet", hint: "8 letras, estafa digital", row: 4, col: 0, direction: "horizontal", number: 5 },
@@ -81,6 +240,45 @@ const LEVELS = [
             { word: "BACKUP", clue: "Copia de seguridad", hint: "6 letras, respaldo", row: 6, col: 0, direction: "horizontal", number: 7 },
             { word: "HACKER", clue: "Experto en seguridad", hint: "6 letras, intruso digital", row: 7, col: 0, direction: "horizontal", number: 8 },
             { word: "VIRUS", clue: "Programa malicioso", hint: "5 letras, infección digital", row: 8, col: 0, direction: "horizontal", number: 9 }
+        ],
+        prefilledLetters: [
+            // CRIPTOGRAFIA - dejar 6 letras sin completar
+            { row: 0, col: 0, letter: "C" },
+            { row: 0, col: 3, letter: "P" },
+            { row: 0, col: 5, letter: "O" },
+            { row: 0, col: 7, letter: "R" },
+            { row: 0, col: 9, letter: "F" },
+            { row: 0, col: 11, letter: "A" },
+            // CONTRASEÑA - dejar 6 letras sin completar
+            { row: 1, col: 0, letter: "C" },
+            { row: 1, col: 3, letter: "T" },
+            { row: 1, col: 5, letter: "A" },
+            { row: 1, col: 7, letter: "E" },
+            // ANTIVIRUS - dejar 6 letras sin completar
+            { row: 2, col: 0, letter: "A" },
+            { row: 2, col: 3, letter: "I" },
+            { row: 2, col: 5, letter: "I" },
+            // ENCRIPTACION - dejar 6 letras sin completar
+            { row: 3, col: 0, letter: "E" },
+            { row: 3, col: 3, letter: "R" },
+            { row: 3, col: 5, letter: "P" },
+            { row: 3, col: 7, letter: "A" },
+            { row: 3, col: 9, letter: "I" },
+            { row: 3, col: 10, letter: "O" },
+            // PHISHING - dejar 6 letras sin completar
+            { row: 4, col: 0, letter: "P" },
+            { row: 4, col: 3, letter: "S" },
+            // MALWARE - dejar 6 letras sin completar
+            { row: 5, col: 0, letter: "M" },
+            // BACKUP - dejar 6 letras sin completar (solo tiene 6, dejar 4)
+            { row: 6, col: 0, letter: "B" },
+            { row: 6, col: 4, letter: "U" },
+            // HACKER - dejar 6 letras sin completar (solo tiene 6, dejar 4)
+            { row: 7, col: 0, letter: "H" },
+            { row: 7, col: 4, letter: "E" },
+            // VIRUS - dejar 6 letras sin completar (solo tiene 5, dejar 3)
+            { row: 8, col: 0, letter: "V" },
+            { row: 8, col: 3, letter: "U" }
         ],
         hints: 5
     }
@@ -161,7 +359,13 @@ class CrosswordGame {
         this.createGrid(level);
         this.displayClues(level);
         this.buildKeyboard(level);
-        this.showMessage(`Nivel ${level.level}: ${level.difficulty}`, 'info');
+        
+        // Mostrar mensaje de bienvenida para el tutorial
+        if (level.isTutorial) {
+            this.showTutorialWelcome();
+        } else {
+            this.showMessage(`Nivel ${level.level}: ${level.difficulty}`, 'info');
+        }
     }
 
     createGrid(level) {
@@ -217,6 +421,20 @@ class CrosswordGame {
                     input.dataset.col = col;
                     input.dataset.answer = cellData.letter;
 
+                    // Check if this cell should be pre-filled
+                    const isPrefilled = level.prefilledLetters && level.prefilledLetters.some(
+                        pf => pf.row === row && pf.col === col
+                    );
+
+                    if (isPrefilled) {
+                        const prefilledData = level.prefilledLetters.find(
+                            pf => pf.row === row && pf.col === col
+                        );
+                        input.value = prefilledData.letter;
+                        input.dataset.prefilled = 'true';
+                        cell.classList.add('prefilled');
+                    }
+
                     input.addEventListener('focus', (e) => this.handleFocus(e));
                     input.addEventListener('keydown', (e) => this.handleKeydown(e));
 
@@ -263,13 +481,24 @@ class CrosswordGame {
     onKeyPress(key) {
         if (!this.focusedInput) return;
         if (this.focusedInput.disabled) return;
+        
+        // Bloquear edición de celdas pre-llenadas
+        if (this.focusedInput.dataset.prefilled === 'true') {
+            // Si intenta editar una celda pre-llenada, mover a la siguiente
+            if (key !== 'BACKSPACE') {
+                this.moveToNextCell(this.focusedInput);
+            }
+            return;
+        }
 
         if (key === 'BACKSPACE') {
             if (this.focusedInput.value) {
                 this.focusedInput.value = '';
             } else {
                 this.moveToPreviousCell(this.focusedInput);
-                if (this.focusedInput) this.focusedInput.value = '';
+                if (this.focusedInput && this.focusedInput.dataset.prefilled !== 'true') {
+                    this.focusedInput.value = '';
+                }
             }
         } else {
             this.focusedInput.value = key;
@@ -341,6 +570,15 @@ class CrosswordGame {
     }
 
     setFocus(input) {
+        // Si la celda está pre-llenada, buscar la siguiente celda editable
+        if (input.dataset.prefilled === 'true') {
+            const row = parseInt(input.dataset.row);
+            const col = parseInt(input.dataset.col);
+            // Intentar mover a la siguiente celda
+            this.moveCell(row, col, 0, 1);
+            return;
+        }
+        
         document.querySelectorAll('.cell.selected').forEach(c => c.classList.remove('selected'));
         this.focusedInput = input;
         input.parentElement.classList.add('selected');
@@ -429,7 +667,12 @@ class CrosswordGame {
         if (newRow >= 0 && newRow < level.size.rows && newCol >= 0 && newCol < level.size.cols) {
             const nextInput = document.querySelector(`input[data-row="${newRow}"][data-col="${newCol}"]`);
             if (nextInput) {
-                this.setFocus(nextInput);
+                // Si la siguiente celda está pre-llenada, saltar a la siguiente
+                if (nextInput.dataset.prefilled === 'true') {
+                    this.moveCell(newRow, newCol, rowDelta, colDelta);
+                } else {
+                    this.setFocus(nextInput);
+                }
             }
         }
     }
@@ -445,7 +688,14 @@ class CrosswordGame {
         inputs.forEach(input => {
             const userAnswer = input.value.toUpperCase();
             const correctAnswer = input.dataset.answer;
+            const isPrefilled = input.dataset.prefilled === 'true';
             input.parentElement.classList.remove('correct', 'incorrect');
+
+            // Skip prefilled cells from validation
+            if (isPrefilled) {
+                input.parentElement.classList.add('correct');
+                return;
+            }
 
             if (userAnswer) {
                 filledCount++;
@@ -456,6 +706,8 @@ class CrosswordGame {
                     allCorrect = false;
                 }
             } else {
+                // Mark empty cells as incorrect (red)
+                input.parentElement.classList.add('incorrect');
                 allCorrect = false;
             }
         });
@@ -580,6 +832,28 @@ class CrosswordGame {
             this.saveProgress();
             this.loadLevel(0);
             this.hideModal();
+        };
+        this.showModal();
+    }
+
+    showTutorialWelcome() {
+        const level = LEVELS[this.currentLevel];
+        this.modalTitle.textContent = '🎯 Bienvenido Agente';
+        this.modalMessage.textContent = level.phrase;
+        this.modalStats.innerHTML = `
+            <p style="margin-top: 16px; color: var(--accent-soft); font-size: 0.9rem;">
+                <strong>Instrucciones:</strong><br>
+                • Lee las pistas de cada palabra<br>
+                • Escribe las letras en las casillas<br>
+                • Usa el teclado virtual o tu teclado físico<br>
+                • Presiona "Verificar" cuando termines<br>
+                • Puedes usar pistas si necesitas ayuda
+            </p>
+        `;
+        this.modalBtn.textContent = 'Comenzar Misión';
+        this.modalBtn.onclick = () => {
+            this.hideModal();
+            this.showMessage('¡Buena suerte agente! Completa las palabras', 'info');
         };
         this.showModal();
     }
