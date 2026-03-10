@@ -756,7 +756,10 @@ class CrosswordGame {
         const inputs = document.querySelectorAll('.cell input');
         
         inputs.forEach(input => {
-            input.value = '';
+            // No borrar las letras pre-llenadas
+            if (input.dataset.prefilled !== 'true') {
+                input.value = '';
+            }
             input.disabled = false;
             input.parentElement.classList.remove('correct', 'incorrect', 'active', 'selected', 'hint-cell');
         });
@@ -838,10 +841,10 @@ class CrosswordGame {
 
     showTutorialWelcome() {
         const level = LEVELS[this.currentLevel];
-        this.modalTitle.textContent = '🎯 Bienvenido Agente';
+        this.modalTitle.textContent = 'Bienvenido Agente';
         this.modalMessage.textContent = level.phrase;
         this.modalStats.innerHTML = `
-            <p style="margin-top: 16px; color: var(--accent-soft); font-size: 0.9rem;">
+            <p style="margin-top: 16px; color: white; font-size: 0.9rem;">
                 <strong>Instrucciones:</strong><br>
                 • Lee las pistas de cada palabra<br>
                 • Escribe las letras en las casillas<br>
